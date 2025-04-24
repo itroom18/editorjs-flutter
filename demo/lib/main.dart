@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:editorjs_flutter/editorjs_flutter.dart';
 import 'package:flutter/material.dart';
 import 'createnote.dart';
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -31,7 +33,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  EditorJSView editorJSView;
+  EditorJSView? editorJSView;
 
   @override
   void initState() {
@@ -40,14 +42,21 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void fetchTestData() async {
-    String data = await DefaultAssetBundle.of(context)
-        .loadString("test_data/editorjsdatatest.json");
-    String styles = await DefaultAssetBundle.of(context)
-        .loadString("test_data/editorjsstyles.json");
+    try {
+      String data = await DefaultAssetBundle.of(context)
+          .loadString("test_data/editorjsdatatest.json");
+      String styles = await DefaultAssetBundle.of(context)
+          .loadString("test_data/editorjsstyles.json");
 
-    setState(() {
-      editorJSView = EditorJSView(editorJSData: data, styles: styles);
-    });
+      setState(() {
+        editorJSView = EditorJSView(
+            data: EditorJSData.fromJson(jsonDecode(data)),
+            styles: EditorJSViewStyles.fromJson(jsonDecode(styles)));
+      });
+    } catch (e) {
+      // Обработка ошибки загрузки данных
+      print("Error loading data: $e");
+    }
   }
 
   void _showEditor() {
@@ -65,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
         shrinkWrap: true,
         padding: EdgeInsets.all(15),
         children: [
-          (editorJSView != null) ? editorJSView : Text("Please wait...")
+          (editorJSView != null) ? editorJSView! : Text("Please wait...")
         ],
       ),
       floatingActionButton: FloatingActionButton(

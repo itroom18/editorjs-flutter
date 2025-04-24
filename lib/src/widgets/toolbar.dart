@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:io';
 
 import 'package:flutter/gestures.dart';
@@ -27,39 +29,46 @@ class EditorJSToolbarState extends State<EditorJSToolbar> {
   void changeHeader(size) {
     setState(
       () {
-        switch (size){
-          case 1:{
-            fontSize = 32;
-            fontWeight = FontWeight.bold;
-          }
-          break;
-          case 2:{
-            fontSize = 24;
-            fontWeight = FontWeight.bold;
-          }
-          break;
-          case 3:{
-            fontSize = 16;
-            fontWeight = FontWeight.w600;
-          }
-          break;
-          case 4:{
-            fontSize = 12;
-            fontWeight = FontWeight.w500;
-          }
-          break;
-          case 5:{
-            fontSize = 10;
-            fontWeight = FontWeight.w400;
-          }
-          break;
-          case 6:{
-            fontSize = 8;
-            fontWeight = FontWeight.w400;
-          }
-          break;
-          default: {}
-          break;
+        switch (size) {
+          case 1:
+            {
+              fontSize = 32;
+              fontWeight = FontWeight.bold;
+            }
+            break;
+          case 2:
+            {
+              fontSize = 24;
+              fontWeight = FontWeight.bold;
+            }
+            break;
+          case 3:
+            {
+              fontSize = 16;
+              fontWeight = FontWeight.w600;
+            }
+            break;
+          case 4:
+            {
+              fontSize = 12;
+              fontWeight = FontWeight.w500;
+            }
+            break;
+          case 5:
+            {
+              fontSize = 10;
+              fontWeight = FontWeight.w400;
+            }
+            break;
+          case 6:
+            {
+              fontSize = 8;
+              fontWeight = FontWeight.w400;
+            }
+            break;
+          default:
+            {}
+            break;
         }
         addText();
       },
@@ -102,7 +111,9 @@ class EditorJSToolbarState extends State<EditorJSToolbar> {
     widget.parent!.setState(
       () {
         widget.parent!.items.add(
-          Row(children: <Widget>[TextComponent.addText(size: fontSize, weight: fontWeight)]),
+          Row(children: <Widget>[
+            TextComponent.addText(size: fontSize, weight: fontWeight)
+          ]),
         );
       },
     );

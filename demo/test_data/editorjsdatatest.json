@@ -1,103 +1,195 @@
 {
-  "time" : 1610053259819,
-  "blocks" : [
+  "time": 1610053259819,
+  "blocks": [
     {
-      "type" : "header",
-      "data" : {
-        "text" : "Editor.js",
-        "level" : 2
+      "id": "lncfZDnMIR",
+      "type": "paragraph",
+      "data": {
+        "text": "<b>When dieting, it is essential to understand portion\ncontrol. If you are not counting calories, overeating can be easy, especially\nwhen dieting. This article aims to provide an example of a 2300-calorie day,\nthe average human daily intake.</b>"
       }
     },
     {
-      "type" : "paragraph",
-      "data" : {
-        "text" : "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text."
+      "id": "eV-sWU47vV",
+      "type": "paragraph",
+      "data": {
+        "text": "Dieting can be a struggle. As humans, we are biologically\nprogrammed to consume calories for energy. Our body wants as many calories as\npossible to ensure sufficient power for life. However, food is easy to come by\nnowadays, meaning we rarely have to search for it. This can lead us to always\nwant more and overeat calories we don’t need, leading to weight gain.\nTherefore, in this article, we will plan a daily diet program to ensure you\nunderstand whether you are overeating. "
       }
     },
     {
-      "type" : "header",
-      "data" : {
-        "text" : "Key features",
-        "level" : 3
+      "id": "nKWOGxjIcV",
+      "type": "paragraph",
+      "data": {
+        "text": "This diet consists of a calorie intake for the average\nhuman. However, depending on your sex (average woman = 2000 calories / average\nmale = 2500 calories), weight and muscle mass, this can be different. If you\nare personally interested in how many calories you should intake, <a href=\"https://www.calculator.net/calorie-calculator.html\">check here\nwith a free calorie calculator</a>."
       }
     },
     {
-      "type" : "list",
-      "data" : {
-        "style" : "unordered",
-        "items" : [
-          "It is a block-styled editor",
-          "It returns clean data output in JSON",
-          "Designed to be extendable and pluggable with a simple API"
+      "id": "IXTyHs4IZ0",
+      "type": "header",
+      "data": {
+        "text": "What should your diet consist of?",
+        "level": 2
+      }
+    },
+    {
+      "id": "8pZAlyyda9",
+      "type": "paragraph",
+      "data": {
+        "text": "Ensure you get the right amount of dark vegetables, fruit,\nwhole grains, and protein sources to meet your dietary requirements. We\nunderstand that diets can be personal and that you may want to try different\noptions. We have provided examples from our recipes section on the platform. Therefore, take a look at the recipes and make your own! We have\nprovided meat and vegetarian options; feel free to mix and match, but watch the\ncalories!"
+      }
+    },
+    {
+      "id": "Ge_hgqVwWK",
+      "type": "paragraph",
+      "data": {
+        "text": "<i>All calories are provided in (brackets)</i>"
+      }
+    },
+    {
+      "id": "zAm7AEHmZF",
+      "type": "header",
+      "data": {
+        "text": "Breakfast",
+        "level": 3
+      }
+    },
+    {
+      "id": "3oKo6fu3XO",
+      "type": "paragraph",
+      "data": {
+        "text": "For breakfast, you want to ensure that you are setting\nyourself up for the day and providing your body with good sources of nutrition\nfrom the get-go!&nbsp;"
+      }
+    },
+    {
+      "id": "ciY89K_E0v",
+      "type": "list",
+      "data": {
+        "style": "ordered",
+        "items": [
+          "<a href=\"https://just2bfit-byv.com/posts/289\">Meat: Breakfast Burrito</a>&nbsp;(421)&nbsp; &nbsp;",
+          "<a href=\"https://just2bfit-byv.com/posts/155\">Veggie: Oatmeal pancakes with banana, walnuts and honey</a>&nbsp;(469)&nbsp; &nbsp;<br>"
         ]
       }
     },
     {
-      "type" : "header",
-      "data" : {
-        "text" : "What does it mean «block-styled editor»",
-        "level" : 3
+      "id": "mTxTt-L42O",
+      "type": "header",
+      "data": {
+        "text": "Lunch",
+        "level": 3
       }
     },
     {
-      "type" : "paragraph",
-      "data" : {
-        "text" : "Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js <mark class=\"cdx-marker\">workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc</mark>. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor's Core."
+      "id": "gpL_3HirHb",
+      "type": "paragraph",
+      "data": {
+        "text": "For lunch, you want something light that will not spike your\nblood glucose, so reduce that afternoon dip so you can carry your energy\nthrough the day!"
       }
     },
     {
-      "type" : "paragraph",
-      "data" : {
-        "text" : "There are dozens of <a href=\"https://github.com/editor-js\">ready-to-use Blocks</a> and the <a href=\"https://editorjs.io/creating-a-block-tool\">simple API</a> for creation any Block you need. For example, you can implement Blocks for Tweets, Instagram posts, surveys and polls, CTA-buttons and even games."
+      "id": "y5d4mE4dHD",
+      "type": "list",
+      "data": {
+        "style": "ordered",
+        "items": [
+          "<a href=\"https://just2bfit-byv.com/posts/1552\">Meat: Salad with Mango, shrimp and Avocado</a>&nbsp;(451)&nbsp;&nbsp;",
+          "<a href=\"https://just2bfit-byv.com/posts/253\">Vegetarian: Quinoa salad with sweet potato, spinach and pomegranate seed</a>&nbsp;(492)&nbsp;&nbsp;<br>"
+        ]
       }
     },
     {
-      "type" : "header",
-      "data" : {
-        "text" : "What does it mean clean data output",
-        "level" : 3
+      "id": "OIy0j-Yn_6",
+      "type": "header",
+      "data": {
+        "text": "Snacks&nbsp;&nbsp;",
+        "level": 3
       }
     },
     {
-      "type" : "paragraph",
-      "data" : {
-        "text" : "Classic WYSIWYG-editors produce raw HTML-markup with both content data and content appearance. On the contrary, Editor.js outputs JSON object with data of each Block. You can see an example below"
+      "id": "t3EiPBCie1",
+      "type": "paragraph",
+      "data": {
+        "text": "Getting healthy snacks in is a must throughout the day. It allows\nyou to top up on much-needed fruit and vegetables you may have missed. We have\npaired two options with half a cup of almonds, a great source of protein with\nadditional health benefits!"
       }
     },
     {
-      "type" : "paragraph",
-      "data" : {
-        "text" : "Given data can be used as you want: render with HTML for <code class=\"inline-code\">Web clients</code>, render natively for <code class=\"inline-code\">mobile apps</code>, create markup for <code class=\"inline-code\">Facebook Instant Articles</code> or <code class=\"inline-code\">Google AMP</code>, generate an <code class=\"inline-code\">audio version</code> and so on."
+      "id": "bOwfzlvJdH",
+      "type": "list",
+      "data": {
+        "style": "unordered",
+        "items": [
+          "<a href=\"https://just2bfit-byv.com/posts/143\">Green smoothie bowl with kiwi, banana and blueberries</a>&nbsp;(465)&nbsp;&nbsp;",
+          "<a href=\"https://just2bfit-byv.com/posts/252\">Oatmeal muffins with apple and banana</a>&nbsp;(366) if you need to reduce your calorie intake and increase your grain intake.&nbsp;&nbsp;<br>",
+          "Pair either of these recipes (not both) with Half a cup of almonds (413.25) = 15 grams of protein.&nbsp;&nbsp;<br>"
+        ]
       }
     },
     {
-      "type" : "paragraph",
-      "data" : {
-        "text" : "Clean data is useful to sanitize, validate and process on the backend."
+      "id": "wKw4ULJKV0",
+      "type": "header",
+      "data": {
+        "text": "Dinner",
+        "level": 3
       }
     },
     {
-      "type" : "delimiter",
-      "data" : {}
-    },
-    {
-      "type" : "paragraph",
-      "data" : {
-        "text" : "We have been working on this project more than three years. Several large media projects help us to test and debug the Editor, to make it's core more stable. At the same time we significantly improved the API. Now, it can be used to create any plugin for any task. Hope you enjoy. 😏"
+      "id": "J_9m3u5GqX",
+      "type": "paragraph",
+      "data": {
+        "text": "For dinner, make sure you get the final calories in your\nbody so you are not starving when you wake up. Dinner should have all the\nnecessary components, including vegetables, grains and proteins."
       }
     },
     {
-      "type" : "image",
-      "data" : {
-        "file" : {
-          "url" : "https://codex.so/public/app/img/external/codex2x.png"
-        },
-        "caption" : "",
-        "withBorder" : false,
-        "stretched" : false,
-        "withBackground" : false
+      "id": "4y4VlscuFT",
+      "type": "list",
+      "data": {
+        "style": "ordered",
+        "items": [
+          "<a href=\"https://just2bfit-byv.com/posts/1563\">&nbsp;Meat: Chicken Breast With Green Asparagus and Grilled Avocado</a>&nbsp;(556)",
+          "<a href=\"https://just2bfit-byv.com/posts/151\">Vegetarian: Japanese noodle soup with tofu and egg</a>&nbsp;(463)&nbsp;&nbsp;&nbsp; &nbsp;"
+        ]
+      }
+    },
+    {
+      "id": "20kt96C5GP",
+      "type": "header",
+      "data": {
+        "text": "Total caloric intake&nbsp;",
+        "level": 2
+      }
+    },
+    {
+      "id": "UlnRpZ9aEq",
+      "type": "paragraph",
+      "data": {
+        "text": "The total calorie intake for the day of eating if you choose the green smoothie bowl:"
+      }
+    },
+    {
+      "id": "Eis67m4iwW",
+      "type": "list",
+      "data": {
+        "style": "ordered",
+        "items": [
+          "<b>Meat </b>= 2306",
+          "<b>Vegetarian</b> = 2302<br>"
+        ]
+      }
+    },
+    {
+      "id": "yRPg-dE3xY",
+      "type": "header",
+      "data": {
+        "text": "Bottom Line",
+        "level": 2
+      }
+    },
+    {
+      "id": "nokUp5-7_2",
+      "type": "paragraph",
+      "data": {
+        "text": "Understanding portion control is crucial when dieting, as it\nhelps prevent overeating and ensures you maintain a balanced intake of\nnutrients. This 2300-calorie day plan provides a structured approach to healthy\neating, offering both meat and vegetarian options. Ensure you include dark\nvegetables, fruits, whole grains, and proteins to meet all dietary\nrequirements. By following these meal suggestions, you can manage your calorie\nintake effectively without feeling deprived, sustaining your energy throughout the\nday and meeting those nutritional goals! "
       }
     }
   ],
-  "version" : "2.19.0"
+  "version": "2.19.0"
 }

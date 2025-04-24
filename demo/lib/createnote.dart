@@ -8,22 +8,18 @@ class CreateNoteLayout extends StatefulWidget {
 }
 
 class CreateNoteLayoutState extends State<CreateNoteLayout> {
-  EditorJSEditor editorJSEditor;
+  late EditorJSEditor editorJSEditor;
 
   @override
   void initState() {
     super.initState();
-    setState(() {
-      editorJSEditor = EditorJSEditor();
-    });
+    editorJSEditor = EditorJSEditor();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Create Note")
-        ),
+        appBar: AppBar(title: Text("Create Note")),
         body: SingleChildScrollView(
             child: Column(
           children: [
