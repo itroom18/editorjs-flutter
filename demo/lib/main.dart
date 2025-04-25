@@ -54,7 +54,6 @@ class _MyHomePageState extends State<MyHomePage> {
             styles: EditorJSViewStyles.fromJson(jsonDecode(styles)));
       });
     } catch (e) {
-      // Обработка ошибки загрузки данных
       print("Error loading data: $e");
     }
   }

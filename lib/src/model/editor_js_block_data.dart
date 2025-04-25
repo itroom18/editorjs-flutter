@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'editor_js_block_file.dart'; // Ensure the correct import path
+import 'editor_js_block_file.dart';
 
 part 'editor_js_block_data.freezed.dart';
 part 'editor_js_block_data.g.dart';
@@ -17,6 +17,7 @@ class EditorJSBlockData with _$EditorJSBlockData {
     bool? withBorder,
     bool? stretched,
     bool? withBackground,
+    List<List<dynamic>>? content,
   }) = _EditorJSBlockData;
 
   factory EditorJSBlockData.fromJson(Map<String, dynamic> json) =>

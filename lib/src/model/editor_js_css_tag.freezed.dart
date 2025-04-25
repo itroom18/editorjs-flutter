@@ -20,13 +20,9 @@ EditorJSCSSTag _$EditorJSCSSTagFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EditorJSCSSTag {
-  @JsonKey(includeToJson: false, includeIfNull: false)
   String? get tag => throw _privateConstructorUsedError;
-  @JsonKey(includeIfNull: false)
   String? get backgroundColor => throw _privateConstructorUsedError;
-  @JsonKey(includeIfNull: false)
   String? get color => throw _privateConstructorUsedError;
-  @JsonKey(includeIfNull: false)
   double? get padding => throw _privateConstructorUsedError;
 
   /// Serializes this EditorJSCSSTag to a JSON map.
@@ -46,10 +42,7 @@ abstract class $EditorJSCSSTagCopyWith<$Res> {
       _$EditorJSCSSTagCopyWithImpl<$Res, EditorJSCSSTag>;
   @useResult
   $Res call(
-      {@JsonKey(includeToJson: false, includeIfNull: false) String? tag,
-      @JsonKey(includeIfNull: false) String? backgroundColor,
-      @JsonKey(includeIfNull: false) String? color,
-      @JsonKey(includeIfNull: false) double? padding});
+      {String? tag, String? backgroundColor, String? color, double? padding});
 }
 
 /// @nodoc
@@ -102,10 +95,7 @@ abstract class _$$EditorJSCSSTagImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(includeToJson: false, includeIfNull: false) String? tag,
-      @JsonKey(includeIfNull: false) String? backgroundColor,
-      @JsonKey(includeIfNull: false) String? color,
-      @JsonKey(includeIfNull: false) double? padding});
+      {String? tag, String? backgroundColor, String? color, double? padding});
 }
 
 /// @nodoc
@@ -151,25 +141,18 @@ class __$$EditorJSCSSTagImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$EditorJSCSSTagImpl implements _EditorJSCSSTag {
   const _$EditorJSCSSTagImpl(
-      {@JsonKey(includeToJson: false, includeIfNull: false) this.tag,
-      @JsonKey(includeIfNull: false) this.backgroundColor,
-      @JsonKey(includeIfNull: false) this.color,
-      @JsonKey(includeIfNull: false) this.padding});
+      {this.tag, this.backgroundColor, this.color, this.padding});
 
   factory _$EditorJSCSSTagImpl.fromJson(Map<String, dynamic> json) =>
       _$$EditorJSCSSTagImplFromJson(json);
 
   @override
-  @JsonKey(includeToJson: false, includeIfNull: false)
   final String? tag;
   @override
-  @JsonKey(includeIfNull: false)
   final String? backgroundColor;
   @override
-  @JsonKey(includeIfNull: false)
   final String? color;
   @override
-  @JsonKey(includeIfNull: false)
   final double? padding;
 
   @override
@@ -213,26 +196,21 @@ class _$EditorJSCSSTagImpl implements _EditorJSCSSTag {
 
 abstract class _EditorJSCSSTag implements EditorJSCSSTag {
   const factory _EditorJSCSSTag(
-      {@JsonKey(includeToJson: false, includeIfNull: false) final String? tag,
-      @JsonKey(includeIfNull: false) final String? backgroundColor,
-      @JsonKey(includeIfNull: false) final String? color,
-      @JsonKey(includeIfNull: false)
+      {final String? tag,
+      final String? backgroundColor,
+      final String? color,
       final double? padding}) = _$EditorJSCSSTagImpl;
 
   factory _EditorJSCSSTag.fromJson(Map<String, dynamic> json) =
       _$EditorJSCSSTagImpl.fromJson;
 
   @override
-  @JsonKey(includeToJson: false, includeIfNull: false)
   String? get tag;
   @override
-  @JsonKey(includeIfNull: false)
   String? get backgroundColor;
   @override
-  @JsonKey(includeIfNull: false)
   String? get color;
   @override
-  @JsonKey(includeIfNull: false)
   double? get padding;
 
   /// Create a copy of EditorJSCSSTag

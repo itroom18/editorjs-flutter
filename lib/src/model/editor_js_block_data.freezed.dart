@@ -30,6 +30,7 @@ mixin _$EditorJSBlockData {
   bool? get withBorder => throw _privateConstructorUsedError;
   bool? get stretched => throw _privateConstructorUsedError;
   bool? get withBackground => throw _privateConstructorUsedError;
+  List<List<dynamic>>? get content => throw _privateConstructorUsedError;
 
   /// Serializes this EditorJSBlockData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -57,7 +58,8 @@ abstract class $EditorJSBlockDataCopyWith<$Res> {
       String? caption,
       bool? withBorder,
       bool? stretched,
-      bool? withBackground});
+      bool? withBackground,
+      List<List<dynamic>>? content});
 
   $EditorJSBlockFileCopyWith<$Res>? get file;
 }
@@ -87,6 +89,7 @@ class _$EditorJSBlockDataCopyWithImpl<$Res, $Val extends EditorJSBlockData>
     Object? withBorder = freezed,
     Object? stretched = freezed,
     Object? withBackground = freezed,
+    Object? content = freezed,
   }) {
     return _then(_value.copyWith(
       text: freezed == text
@@ -129,6 +132,10 @@ class _$EditorJSBlockDataCopyWithImpl<$Res, $Val extends EditorJSBlockData>
           ? _value.withBackground
           : withBackground // ignore: cast_nullable_to_non_nullable
               as bool?,
+      content: freezed == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as List<List<dynamic>>?,
     ) as $Val);
   }
 
@@ -165,7 +172,8 @@ abstract class _$$EditorJSBlockDataImplCopyWith<$Res>
       String? caption,
       bool? withBorder,
       bool? stretched,
-      bool? withBackground});
+      bool? withBackground,
+      List<List<dynamic>>? content});
 
   @override
   $EditorJSBlockFileCopyWith<$Res>? get file;
@@ -194,6 +202,7 @@ class __$$EditorJSBlockDataImplCopyWithImpl<$Res>
     Object? withBorder = freezed,
     Object? stretched = freezed,
     Object? withBackground = freezed,
+    Object? content = freezed,
   }) {
     return _then(_$EditorJSBlockDataImpl(
       text: freezed == text
@@ -236,6 +245,10 @@ class __$$EditorJSBlockDataImplCopyWithImpl<$Res>
           ? _value.withBackground
           : withBackground // ignore: cast_nullable_to_non_nullable
               as bool?,
+      content: freezed == content
+          ? _value._content
+          : content // ignore: cast_nullable_to_non_nullable
+              as List<List<dynamic>>?,
     ));
   }
 }
@@ -253,8 +266,10 @@ class _$EditorJSBlockDataImpl implements _EditorJSBlockData {
       this.caption,
       this.withBorder,
       this.stretched,
-      this.withBackground})
-      : _items = items;
+      this.withBackground,
+      final List<List<dynamic>>? content})
+      : _items = items,
+        _content = content;
 
   factory _$EditorJSBlockDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$EditorJSBlockDataImplFromJson(json);
@@ -287,10 +302,19 @@ class _$EditorJSBlockDataImpl implements _EditorJSBlockData {
   final bool? stretched;
   @override
   final bool? withBackground;
+  final List<List<dynamic>>? _content;
+  @override
+  List<List<dynamic>>? get content {
+    final value = _content;
+    if (value == null) return null;
+    if (_content is EqualUnmodifiableListView) return _content;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'EditorJSBlockData(text: $text, html: $html, level: $level, style: $style, items: $items, file: $file, caption: $caption, withBorder: $withBorder, stretched: $stretched, withBackground: $withBackground)';
+    return 'EditorJSBlockData(text: $text, html: $html, level: $level, style: $style, items: $items, file: $file, caption: $caption, withBorder: $withBorder, stretched: $stretched, withBackground: $withBackground, content: $content)';
   }
 
   @override
@@ -310,7 +334,8 @@ class _$EditorJSBlockDataImpl implements _EditorJSBlockData {
             (identical(other.stretched, stretched) ||
                 other.stretched == stretched) &&
             (identical(other.withBackground, withBackground) ||
-                other.withBackground == withBackground));
+                other.withBackground == withBackground) &&
+            const DeepCollectionEquality().equals(other._content, _content));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -326,7 +351,8 @@ class _$EditorJSBlockDataImpl implements _EditorJSBlockData {
       caption,
       withBorder,
       stretched,
-      withBackground);
+      withBackground,
+      const DeepCollectionEquality().hash(_content));
 
   /// Create a copy of EditorJSBlockData
   /// with the given fields replaced by the non-null parameter values.
@@ -356,7 +382,8 @@ abstract class _EditorJSBlockData implements EditorJSBlockData {
       final String? caption,
       final bool? withBorder,
       final bool? stretched,
-      final bool? withBackground}) = _$EditorJSBlockDataImpl;
+      final bool? withBackground,
+      final List<List<dynamic>>? content}) = _$EditorJSBlockDataImpl;
 
   factory _EditorJSBlockData.fromJson(Map<String, dynamic> json) =
       _$EditorJSBlockDataImpl.fromJson;
@@ -381,6 +408,8 @@ abstract class _EditorJSBlockData implements EditorJSBlockData {
   bool? get stretched;
   @override
   bool? get withBackground;
+  @override
+  List<List<dynamic>>? get content;
 
   /// Create a copy of EditorJSBlockData
   /// with the given fields replaced by the non-null parameter values.

@@ -15,17 +15,10 @@ _$EditorJSCSSTagImpl _$$EditorJSCSSTagImplFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$EditorJSCSSTagImplToJson(
-    _$EditorJSCSSTagImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('backgroundColor', instance.backgroundColor);
-  writeNotNull('color', instance.color);
-  writeNotNull('padding', instance.padding);
-  return val;
-}
+        _$EditorJSCSSTagImpl instance) =>
+    <String, dynamic>{
+      'tag': instance.tag,
+      'backgroundColor': instance.backgroundColor,
+      'color': instance.color,
+      'padding': instance.padding,
+    };

@@ -6,24 +6,19 @@ import 'package:flutter/material.dart';
 import 'package:editorjs_flutter/src/model/editor_js_data.dart';
 import 'package:editorjs_flutter/src/model/editor_js_view_styles.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class EditorJSView extends StatefulWidget {
   final EditorJSData? data;
   final EditorJSViewStyles? styles;
 
-  /// A function that defines what to do when a link is tapped
   final FutureOr<bool> Function(String)? onLinkTap;
-
-  /// A function that defines what to do when an anchor link is tapped. When this value is set,
-  /// the default anchor behaviour is overwritten.
-  // final OnTap? onAnchorTap;
 
   const EditorJSView({
     Key? key,
     this.data,
     this.styles,
     this.onLinkTap,
-    // this.onAnchorTap,
   }) : super(key: key);
 
   @override
@@ -33,13 +28,10 @@ class EditorJSView extends StatefulWidget {
 class EditorJSViewState extends State<EditorJSView> {
   String? data;
   final List<Widget> items = <Widget>[];
-  // late Map<String, Style> customStyleMap;
 
   @override
   void initState() {
     super.initState();
-
-    // customStyleMap = generateStylemap(widget.styles?.cssTags);
 
     widget.data?.blocks?.forEach(
       (element) {
@@ -120,13 +112,6 @@ class EditorJSViewState extends State<EditorJSView> {
                 },
               ),
             );
-            // items.add(Html(
-            //   data: '<p>tesss${element.data!.text}</p>',
-            //   style: customStyleMap,
-            //   shrinkWrap: true,
-            //   onLinkTap: widget.onLinkTap,
-            //   onAnchorTap: widget.onAnchorTap,
-            // ));
             break;
           case "list":
             String? style = element.data!.style;
@@ -147,33 +132,146 @@ class EditorJSViewState extends State<EditorJSView> {
             items.add(HtmlWidget(
               data,
               onTapUrl: widget.onLinkTap,
-            )
-                // Html(
-                //   data: data,
-                //   style: {
-                //     ...customStyleMap,
-                //     'ol': Style(
-                //         padding: HtmlPaddings.zero,
-                //         margin: Margins.symmetric(horizontal: 20)),
-                //     'ul': Style(
-                //         padding: HtmlPaddings.zero,
-                //         margin: Margins.symmetric(horizontal: 20)),
-                //   },
-                //   shrinkWrap: true,
-                //   onLinkTap: widget.onLinkTap,
-                //   onAnchorTap: widget.onAnchorTap,
-                // ),
-                );
+            ));
             break;
           case "delimiter":
-            items.add(
-                Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-              // Text('***', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold), textAlign: TextAlign.center,)
-              Expanded(child: Divider(color: Colors.grey))
-            ]));
+            items.add(Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Expanded(child: Divider(color: Colors.grey))]));
             break;
           case "image":
-            items.add(Image.network(element.data!.file!.url!));
+            Widget imageWidget = Image.network(element.data!.file!.url!);
+
+            if (element.data?.caption != null) {
+              imageWidget = Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  imageWidget,
+                  SizedBox(height: 8),
+                  Text(
+                    element.data!.caption!,
+                    style: TextStyle(
+                      fontStyle: FontStyle.italic,
+                      color: Colors.grey[700],
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              );
+            }
+
+            if (element.data?.text != null) {
+              imageWidget = Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  imageWidget,
+                  SizedBox(height: 8),
+                  Text(element.data!.text!),
+                ],
+              );
+            }
+
+            items.add(imageWidget);
+            break;
+          case "quote":
+            try {
+              items.add(
+                Container(
+                  width: double.infinity,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(77, 106, 203, 201),
+                    borderRadius: BorderRadius.all(Radius.circular(16)),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    spacing: 16,
+                    children: [
+                      SvgPicture.asset('assets/icons/quoteTop.svg',
+                          package: 'editorjs_flutter'),
+                      Text(
+                        element.data!.text!,
+                        textAlign: TextAlign.start,
+                        style: const TextStyle(fontStyle: FontStyle.italic),
+                      ),
+                      if (element.data?.caption != null)
+                        Text('- ${element.data!.caption!}'),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: SvgPicture.asset('assets/icons/quoteBottom.svg',
+                            package: 'editorjs_flutter'),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            } catch (e) {
+              print('Ошибка при отображении цитаты: $e');
+            }
+            break;
+          case "table":
+            try {
+              final List<dynamic> tableContent = element.data!.content!;
+              int indexRow = 0;
+
+              items.add(
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Container(
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(16)),
+                      border: Border.all(
+                        width: 1,
+                        color: Colors.white,
+                      ),
+                    ),
+                    child: Table(
+                      border: const TableBorder.symmetric(),
+                      defaultColumnWidth: const IntrinsicColumnWidth(),
+                      children: tableContent.map<TableRow>((row) {
+                        int indexItem = 0;
+                        return TableRow(
+                          decoration: (indexRow++) < tableContent.length - 1
+                              ? const BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                )
+                              : null,
+                          children: (row as List<dynamic>).map<Widget>((cell) {
+                            return ConstrainedBox(
+                              constraints: const BoxConstraints(minWidth: 200),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: (indexItem++) < row.length - 1
+                                      ? const Border(
+                                          right: BorderSide(
+                                            color: Colors.white,
+                                          ),
+                                        )
+                                      : null,
+                                ),
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  cell.toString(),
+                                  softWrap: true,
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ),
+              );
+            } catch (e) {
+              print('Ошибка при отображении таблицы: $e');
+            }
             break;
           case "raw":
             if (element.data?.html != null) {
@@ -189,37 +287,13 @@ class EditorJSViewState extends State<EditorJSView> {
     );
   }
 
-  // Map<String, Style> generateStylemap(List<EditorJSCSSTag>? styles) {
-  //   Map<String, Style> map = <String, Style>{};
-
-  //   styles?.forEach(
-  //     (element) {
-  //       map.putIfAbsent(
-  //           element.tag.toString(),
-  //           () => Style(
-  //               margin: Margins.zero,
-  //               backgroundColor: (element.backgroundColor != null)
-  //                   ? getColor(element.backgroundColor!)
-  //                   : null,
-  //               color:
-  //                   (element.color != null) ? getColor(element.color!) : null,
-  //               padding: HtmlPaddings.all(element.padding ?? 0)));
-  //     },
-  //   );
-
-  //   return map;
-  // }
-
   Color? getColor(String hexColor) {
-    // Remove the '#' if it is there
     hexColor = hexColor.replaceAll('#', '');
 
-    // Check if the hex string has 8 characters (including alpha)
     if (hexColor.length == 8) {
       return Color(int.parse('0x$hexColor'));
     } else if (hexColor.length == 6) {
-      return Color(
-          int.parse('0xFF$hexColor')); // Default alpha to 255 (fully opaque)
+      return Color(int.parse('0xFF$hexColor'));
     } else {
       return null;
     }
@@ -230,8 +304,6 @@ class EditorJSViewState extends State<EditorJSView> {
     return Column(children: items);
   }
 }
-
-// Not impletemented yet
 
 class EditorBlockRenderer extends StatelessWidget {
   final List<dynamic> blocks;
@@ -248,8 +320,7 @@ class EditorBlockRenderer extends StatelessWidget {
             return Text(
               block['data']['text'],
               style: TextStyle(
-                fontSize: 24.0 -
-                    (block['data']['level'] * 2), // Adjust size based on level
+                fontSize: 24.0 - (block['data']['level'] * 2),
                 fontWeight: FontWeight.bold,
               ),
             );
@@ -259,7 +330,7 @@ class EditorBlockRenderer extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: block['data']['items'].map<Widget>((item) {
-                return Text('• $item'); // Bullet point for unordered list
+                return Text('• $item');
               }).toList(),
             );
           case 'image':
@@ -287,8 +358,7 @@ class EditorBlockRenderer extends StatelessWidget {
           case 'table':
             return TableBlock(tableData: block['data']['content']);
           default:
-            return SizedBox
-                .shrink(); // Return an empty widget for unhandled types
+            return SizedBox.shrink();
         }
       }).toList(),
     );
@@ -305,32 +375,13 @@ class VideoPlayerBlock extends StatefulWidget {
 }
 
 class _VideoPlayerBlockState extends State<VideoPlayerBlock> {
-  // late VideoPlayerController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    // _controller = VideoPlayerController.network(widget.videoUrl)
-    //   ..initialize().then((_) {
-    //     setState(() {}); // Update the UI when the video is initialized
-    //   });
-  }
-
-  @override
-  void dispose() {
-    // _controller.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         AspectRatio(
           aspectRatio: 16 / 9,
-          // child: VideoPlayer(_controller),
         ),
-        // VideoProgressIndicator(_controller, allowScrubbing: true),
       ],
     );
   }

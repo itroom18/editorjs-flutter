@@ -169,10 +169,7 @@
       "type": "list",
       "data": {
         "style": "ordered",
-        "items": [
-          "<b>Meat </b>= 2306",
-          "<b>Vegetarian</b> = 2302<br>"
-        ]
+        "items": ["<b>Meat </b>= 2306", "<b>Vegetarian</b> = 2302<br>"]
       }
     },
     {
@@ -188,6 +185,41 @@
       "type": "paragraph",
       "data": {
         "text": "Understanding portion control is crucial when dieting, as it\nhelps prevent overeating and ensures you maintain a balanced intake of\nnutrients. This 2300-calorie day plan provides a structured approach to healthy\neating, offering both meat and vegetarian options. Ensure you include dark\nvegetables, fruits, whole grains, and proteins to meet all dietary\nrequirements. By following these meal suggestions, you can manage your calorie\nintake effectively without feeling deprived, sustaining your energy throughout the\nday and meeting those nutritional goals! "
+      }
+    },
+    {
+      "id": "image123",
+      "type": "image",
+      "data": {
+        "file": {
+          "url": "https://images.unsplash.com/photo-1490645935967-10de6ba17061"
+        },
+        "caption": "Здоровая пища для сбалансированной диеты",
+        "withBorder": false,
+        "stretched": false,
+        "withBackground": false
+      }
+    },
+    {
+      "id": "quote456",
+      "type": "quote",
+      "data": {
+        "text": "Правильное питание - это не краткосрочная диета, а долгосрочный образ жизни.",
+        "caption": "Неизвестный диетолог",
+        "alignment": "left"
+      }
+    },
+    {
+      "id": "table789",
+      "type": "table",
+      "data": {
+        "content": [
+          ["Продукт", "Калории", "Белки (г)", "Жиры (г)", "Углеводы (г)"],
+          ["Куриная грудка (100г)", "165", "31", "3.6", "0"],
+          ["Киноа (100г)", "120", "4.4", "1.9", "21.3"],
+          ["Авокадо (100г)", "160", "2", "14.7", "8.5"],
+          ["Миндаль (100г)", "575", "21", "49.4", "21.6"]
+        ]
       }
     }
   ],

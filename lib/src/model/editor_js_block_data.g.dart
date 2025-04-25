@@ -22,6 +22,9 @@ _$EditorJSBlockDataImpl _$$EditorJSBlockDataImplFromJson(
       withBorder: json['withBorder'] as bool?,
       stretched: json['stretched'] as bool?,
       withBackground: json['withBackground'] as bool?,
+      content: (json['content'] as List<dynamic>?)
+          ?.map((e) => e as List<dynamic>)
+          .toList(),
     );
 
 Map<String, dynamic> _$$EditorJSBlockDataImplToJson(
@@ -37,4 +40,5 @@ Map<String, dynamic> _$$EditorJSBlockDataImplToJson(
       'withBorder': instance.withBorder,
       'stretched': instance.stretched,
       'withBackground': instance.withBackground,
+      'content': instance.content,
     };
